@@ -12,12 +12,21 @@
  * 
  * */ 
 
-import java.util.Scanner;
-import java.io.*; 
-import java.util.FileReader; 
-import java.io.BufferedReader;
-
 public class driver{
-    public static void main(String[] args) {
-        //Método main. 
+   
+
+    public static void main(String[] args) 
+    {
+
+        //Método main.
+
+        /*          Instnacias          */
+         gestor gest = new gestor();  
+        
+
+
+        gest.menu(); //Llamando al menú. 
+
      }
+
+} 
