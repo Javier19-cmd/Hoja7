@@ -11,22 +11,19 @@
  * Se debe traducir cada palabra al idioma destino. Si en caso hay una palabra que no está en el diccionario, entonces se deja intacta la palabra encerrada en astericos.
  * 
  * */ 
-
+import java.util.*; 
 public class driver{
-   
+  
 
     public static void main(String[] args) 
     {
 
-        //Método main.
+        
+      //Método main.
 
         /*          Instnacias          */
-         gestor gest = new gestor();  
+         gestor.menu(); //Haciendo llamada directa al método de menú.
         
-
-
-        gest.menu(); //Llamando al menú. 
-
-     }
-
+         
+      }
 } 
