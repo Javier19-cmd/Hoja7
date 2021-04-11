@@ -41,14 +41,15 @@ public class gestor {
          while(ele != 6){
           
           System.out.println("¿Qué desea hacer?");
-          System.out.println("1. Ver las palabras disponibles.");
-          System.out.println("0. Salir");
+          System.out.println("1. Ver el diccionario.");
+          System.out.println("2. Traducir");
+          System.out.println("6. Salir");
 
             ele = eleccion.nextInt(); //Leyendo lo que el usuario ingresa. 
 
             try {
               
-              if(ele > 1 || ele < 0){
+              if(ele > 2 || ele < 0){
                 //Si en caso el usuario elije una opción que no pertenece al menú.
                 System.out.println("Esta opción no está en el menú.");
               }else{
@@ -67,15 +68,18 @@ public class gestor {
          }
 
           //Llamadas definitivas.
-          if(ele == 1){abrirDiccionario();} //Llamando al método de abrirDiccionario, correspondiente a la clase gestor.
+          if(ele == 1){abrirDiccionario();} //Llamando al método de abrirDiccionario, correspondiente a la clase gestor. (Esta clase :Vs)
+          if/(ele == 2){abrirTexto();} //Llamando al método de abrirTexto, correspondiente a la clase gestor. (Esta clase :V)
 
           return ele; //Retorno de la elección.
      }
     
 
     /*                 AQUÍ ABRO LOS ARCHIVOS Y LOS MANDO A OTROS MÉTODOS              */
-     public static void abrirDiccionario(){
+     public static String abrirDiccionario(){
         
+        String lector = ""; //Esta será la variable que retornará.
+
         //Try-catch para evitar clavos.
         try {
           
@@ -88,7 +92,7 @@ public class gestor {
           FileReader fr = new FileReader(Diccio); 
           BufferedReader buff = new BufferedReader(fr);
           
-          String lector = buff.readLine(); //Leyendo las líneas del archivo.
+          lector = buff.readLine(); //Leyendo las líneas del archivo.
 
           /* Impriendo las líneas del archivo que no estén vacías */
           while((lector = buff.readLine()) != null){
@@ -96,6 +100,7 @@ public class gestor {
                 //Instancia de la clase Nodo.
                 //Nodo nodo = new Nodo(lector);
 
+                //Ordenando el diccionario.
                 Tree m = new Tree();
                 m.insert(lector);
                 System.out.println("Rama: ");
@@ -110,5 +115,33 @@ public class gestor {
             //Error en caso de que no estén los archivos.
             System.out.println("El archivo no existe en los directorios.");
         }
+      
+          return lector; 
+         }
+
+
+      /*      Método para abrir el archivo de texto llamado "texto.txt" con las oraciones que posea, en el idioma que sea      */
+      public static String abrirTexto(){
+        String lector = ""; //Esta será la variable que retornará.
+
+        //Try-catch para abrir el archivo texto.txt
+        try {
+        
+          //Abriendo formalmente el archivo.
+          File Text = new File("texto.txt"); //Variable para buscar el archivo.
+          //Scanner palabras = new Scanner(Diccio); //Leyendo el archivo.
+          
+          /* Encargados de procesar el archivo diccionario.txt */
+
+          FileReader fr = new FileReader(Text); 
+          BufferedReader buff = new BufferedReader(fr);
+          
+          lector = buff.readLine(); //Leyendo las líneas del archivo.
+          
+        } catch (Exception ArchivoNoEncontrado) {
+          //TODO: handle exception
+        }
+
+        return lector; 
       }
 }

@@ -1,23 +1,33 @@
-public class Tree {
+/**
+ * @author Javier Sebastián Valle Balsells, carnet 20159
+ * 
+ * Referencia: https://www.daniweb.com/programming/software-development/threads/450817/binary-tree-using-strings-and-recursion
+ * 
+ */
+public class Tree <E>{
 
-    public Nodo root;    
+    public Nodo root; //Instancia de la clase nodo.
 
+    //Constructor.
     public Tree(){
 
         root = null;
 
     }
 
-        public Nodo returnRoot(){
-            return root;
-        }
+    //Regersando la raíz.
+    public Nodo returnRoot(){
+        return root;
+    }
 
+    //Verificando si el árbol está vacío o no.
     public boolean isEmpty(){
 
         return root == null;
 
     }
 
+    //Insertando los valores al árbol.
     public void insert(String value){
 
         if(isEmpty()){
@@ -30,21 +40,23 @@ public class Tree {
 
         }
     }
+        //Obteniendo la raíz del árbol.
         public Nodo getRoot(){
             return root;
-        }
+        } 
 
+        //Regresando el árbol de la forma in-order.
          public void inOrder() {
           inOrder(root);
     }
 
-          // using the function ...
+        // Realizando el in-order.
        public void inOrder(Nodo root) {
          if (root != null) {            
 
-       inOrder(root.getLeft());        // left
-       System.out.println(root.getWord());   // root
-       inOrder(root.getRight());       // right
+       inOrder(root.getLeft());        // izquierda.
+       System.out.println(root.getWord());   // raíz.
+       inOrder(root.getRight());       // derecha.
     }
 
     }

@@ -8,10 +8,6 @@
  * Referencia: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
  */
 
-//Imports para poder hacer el diccionario.
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class Nodo {
     
     private String word;    // The data in this node.
@@ -24,54 +20,59 @@ public class Nodo {
         right = null;
     }
 
-
+    //Método para poder añadir los valores de las ramas del árbol.
     public void add(String value) {
 
-        if (left == null) {     
-            left = new Nodo(value);     
-        } else if( right == null){      
+        if (left == null) { 
+            //Si en caso la rama izquierda está vacía, entonces se introduce el valor del String en esa rama.    
+            left = new Nodo(value);
+        } else if( right == null){
+            //Si en caso la rama derecha está vacía, entonces se introduce el valor del String en esa rama.
             right = new Nodo(value);            
-        } else {        
+        } else {
+            //En caso de que los nodos de la izquierda son menos que los de la derecha, entonces se empiezan a añadir valores a la izquierda.
             if(countNodes(left) <= countNodes(right)){               
-                left.add(value);                
-            } else {        
+                left.add(value);
+            } else {
+                //En caso de que los nodos de la derecha son menos que los de la izquierda, entonces se empiezan a añadir valores a la derecha.
                 right.add(value);
 
             }   
         }
     }
 
-    //Count the nodes in the binary tree to which root points, and
+    //Cuenta los nodos del árbol binario hacia donde la raíz apunta.
     public static int countNodes( Nodo root ) {
         if ( root == null ){
-
-            // The tree is empty.  It contains no nodes.
+            //Retorna cero si el árbol está vacío.
             return 0;  
 
                 }else {
 
-            // Start by counting the root.
+            // Se hace un conteo de los nodos en caso de que el árbol tenga contenido.
             int count = 1;   
 
-
-            // Add the number of nodes in the left subtree.
+            //Cuenta el número de nodos en el subárbol izquierdo.
             count += countNodes(root.left);
 
-            // Add the number of nodes in the right subtree.
+            //Cuenta el número de nodos del subárbol izquierdo.
             count += countNodes(root.right); 
 
-            return count;  // Return the total.
+            return count;  //Regresa el total de las raíces.
         }
     }
 
-        public Nodo getLeft(){
+    //Obteniendo el nodo/nodos izquierdo/izquierdos.
+    public Nodo getLeft(){
         return left;
     }
 
+    //Obteniendo el nodo/nodos derecho/derechos.
     public Nodo getRight(){
         return right;
     }
 
+    //Obtiene la palabra.
     public String getWord(){
         return word;
     }
