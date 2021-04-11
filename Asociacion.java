@@ -6,6 +6,6 @@
  * 
  * 
  */
-public class Asociacion {
-    
+public class Asociacion <K, V>{
+
 }
