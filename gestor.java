@@ -93,7 +93,13 @@ public class gestor {
           /* Impriendo las líneas del archivo que no estén vacías */
           while((lector = buff.readLine()) != null){
 
-            System.out.println(lector);
+                //Instancia de la clase Nodo.
+                //Nodo nodo = new Nodo(lector);
+
+                Tree m = new Tree();
+                m.insert(lector);
+                System.out.println("Rama: ");
+                m.inOrder();
 
           }
           

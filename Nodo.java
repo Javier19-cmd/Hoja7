@@ -14,70 +14,68 @@ import java.util.Queue;
 
 public class Nodo {
     
-    //Variables a usar.
-    int key;     
-    Nodo left, right; 
+    private String word;    // The data in this node.
+    private Nodo left;   // Pointer to the left subtree.
+    private Nodo right;  // Pointer to the right subtree.
 
-    //Constructor
-    Nodo(int key)
-    {
-        this.key = key;
+    public Nodo(String s){
+        word = s;
         left = null;
         right = null;
     }
 
-    //Creando más variables.
-    Nodo root; 
-    Nodo temp = root; 
 
-    //Método para insertar elementos de manera transversal de un árbol binario.
-    void inorder(Nodo temp){
-        
-        if(temp == null){
-            return; //Return vacío en caso de que la variable temporal esté vacía.
-        }
+    public void add(String value) {
 
-        inorder(temp.left); //Agregando elementos desde la izquierda.
-        System.out.println(temp.key + " "); //Imprimiendo los elementos que se van guardando.
-        inorder(temp.right); //Agregando elementos desde la derecha. 
+        if (left == null) {     
+            left = new Nodo(value);     
+        } else if( right == null){      
+            right = new Nodo(value);            
+        } else {        
+            if(countNodes(left) <= countNodes(right)){               
+                left.add(value);                
+            } else {        
+                right.add(value);
 
-    }
-
-    //Insertando elementos al árbol binario.
-    void insert(Nodo temp, int key){
-        
-        //En caso de que la variable temporal esté vacía, se crea una nueva raíz. 
-        if(temp == null){
-            root = new Nodo(key); //Creando la nueva raíz.
-            return;
-        }
-
-        /*   Agregando elementos en la cola  */
-        Queue<Nodo> q = new LinkedList<Nodo>();
-        q.add(temp);
-
-        /* Haciendo el orden por niveles transversales hasta que se encuentren espacios vacíos */
-        while(!q.isEmpty()){
-            
-            temp = q.peek(); 
-            q.remove();
-
-            if(temp.left == null){
-                //Si en caso la rama de la izquierda está inicialmente vacío, entonces se crea una en ese espacio.
-                temp.left = new Nodo(key);
-                break; 
-            
-            }else{ //En caso de que la rama esté ocupada, se crea otra debajo de la misma.
-                q.add(temp.left);
-            }
-
-            if(temp.right == null){
-                //Si en caso la rama de la derecha está inicialmente vacía, entonces se crea una nueva en ese espacio. (Lo mismo que con la rama izquierda :V)
-                break; 
-            }else{
-                //En caso de que la rama esté llena, entonce se crea otra rama adicional. (Igual que con la rama derecha :V)
-                q.add(temp.right);
-            }
+            }   
         }
     }
+
+    //Count the nodes in the binary tree to which root points, and
+    public static int countNodes( Nodo root ) {
+        if ( root == null ){
+
+            // The tree is empty.  It contains no nodes.
+            return 0;  
+
+                }else {
+
+            // Start by counting the root.
+            int count = 1;   
+
+
+            // Add the number of nodes in the left subtree.
+            count += countNodes(root.left);
+
+            // Add the number of nodes in the right subtree.
+            count += countNodes(root.right); 
+
+            return count;  // Return the total.
+        }
+    }
+
+        public Nodo getLeft(){
+        return left;
+    }
+
+    public Nodo getRight(){
+        return right;
+    }
+
+    public String getWord(){
+        return word;
+    }
+
+
+
 }
