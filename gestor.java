@@ -1,3 +1,27 @@
+/** 
+ * @author Javier Sebastián Valle Balsells Carnet 20159 
+ * 
+ * Clase gestor: En esta clase se va a gestionar todo lo relacionado a gestionar el archivo diccionario.text y el otro archivo con un documento en cualquier idioma (inglés, español, fraancés)
+ * 
+ * 
+ * El diccionario contiene asociaciones de palabras en inglés, español y francés. 
+ * Estas palabras proceden a pasar a un árbol en donde se guardó el diccionario de forma in-order. 
+ * 
+ * Por otro lado, debe haber un segundo archivo que contenga un doc con oraciones en cualquier idioma y se debe decidir el idioma de origen y el idioma destino. 
+ * Se debe traducir cada palabra al idioma destino. Si en caso hay una palabra que no está en el diccionario, entonces se deja intacta la palabra encerrada en astericos.
+ * 
+ * 
+ * Referencias: 
+ * 
+ * Apertura de archivo: https://geekytheory.com/como-leer-un-fichero-en-java
+ * 
+ * In-order insertion del árbol: https://www.geeksforgeeks.org/insertion-in-a-binary-tree-in-level-order/
+ * 
+ * 
+ * */ 
+
+
+
 import java.util.Scanner;
 import java.io.*; 
 import java.io.BufferedReader;
@@ -58,30 +82,22 @@ public class gestor {
           //Abriendo formalmente el archivo.
           File Diccio = new File("diccionario.txt"); //Variable para buscar el archivo.
           //Scanner palabras = new Scanner(Diccio); //Leyendo el archivo.
+          
+          /* Encargados de procesar el archivo diccionario.txt */
+
           FileReader fr = new FileReader(Diccio); 
           BufferedReader buff = new BufferedReader(fr);
           
-          String lector = buff.readLine(); 
+          String lector = buff.readLine(); //Leyendo las líneas del archivo.
 
-
+          /* Impriendo las líneas del archivo que no estén vacías */
           while((lector = buff.readLine()) != null){
 
             System.out.println(lector);
 
           }
           
-          fr.close();          
-
-          /*
-          //Imprimiendo para probar que se esté abriendo y leyendo.
-          if(palabras.hasNextLine()){
-                //Imprimiendo el contenido del archivo.
-                System.out.println(palabras);
-
-          }else{
-            //Mensaje de error.
-            System.out.println("El archivo no tiene nada dentro.");
-          }*/
+          fr.close(); 
 
 
         } catch (Exception ArchivoNoEncontrado) {

@@ -1,7 +1,7 @@
 /** 
  * @author Javier Sebastián Valle Balsells Carnet 20159 
  * 
- * Clase driver: En esta clase se va a gestionar todo lo relacionado a gestionar el archivo diccionario.text y el otro archivo con un documento en cualquier idioma (inglés, español, fraancés)
+ * Clase driver: En esta clase solo se hará la llamada al menú de la clase gestor. Ese método será el encargado de gestionar todo el programa.
  * 
  * 
  * El diccionario contiene asociaciones de palabras en inglés, español y francés. 
