@@ -10,9 +10,9 @@
 
 public class Nodo {
     
-    private String word;    // The data in this node.
-    private Nodo left;   // Pointer to the left subtree.
-    private Nodo right;  // Pointer to the right subtree.
+    private String word;    //La información está en el nodo.
+    private Nodo left;   //Puntero del subárbol izquierdo.
+    private Nodo right;  //Puntero del subárbol derecho.
 
     /**
      * Se iguala la variable word a s para así añadir el valor de la/las palabras a añadir al diccionario.

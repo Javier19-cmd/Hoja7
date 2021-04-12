@@ -77,7 +77,7 @@ public class gestor {
 
           //Llamadas definitivas.
           if(ele == 1){abrirDiccionario();} //Llamando al método de abrirDiccionario, correspondiente a la clase gestor. (Esta clase :Vs)
-          if/(ele == 2){abrirTexto();} //Llamando al método de abrirTexto, correspondiente a la clase gestor. (Esta clase :V)
+          if(ele == 2){abrirTexto();} //Llamando al método de abrirTexto, correspondiente a la clase gestor. (Esta clase :V)
 
           return ele; //Retorno de la elección.
      }
@@ -154,7 +154,7 @@ public class gestor {
           FileReader fr = new FileReader(Text); 
           BufferedReader buff = new BufferedReader(fr);
           
-          texto = buff.readLine(); //Leyendo las líneas del archivo.
+          texto = buff.readLine(); //Leyendo las líneas del archivo texto.txt.
           
         } catch (Exception ArchivoNoEncontrado) {
           System.out.println("Archivo no encontrado entre los ficheros.");

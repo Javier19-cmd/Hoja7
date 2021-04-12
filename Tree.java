@@ -8,49 +8,73 @@ public class Tree <E>{
 
     public Nodo root; //Instancia de la clase nodo.
 
-    //Constructor.
+    /**
+     * Constructor de la clase Nodo, aquí se vuelve la raíz nula, para que no hayan problemas.
+     * 
+     */
     public Tree(){
 
         root = null;
 
     }
 
-    //Regersando la raíz.
+    /**
+     * @return root , se regresa la raíz para verificar que esté bien asignada.
+     */
     public Nodo returnRoot(){
         return root;
     }
 
-    //Verificando si el árbol está vacío o no.
+    /**
+     * @return root == null, para verificar si la raíz está o no vacía.
+     */
     public boolean isEmpty(){
 
         return root == null;
 
     }
 
-    //Insertando los valores al árbol.
+    /**
+     * Método encargado de ingresar los valores a las ramas del árbol.
+     * 
+     * @param value se envía el valor a ingresar.
+     */
     public void insert(String value){
 
         if(isEmpty()){
 
-            root = new Nodo(value);
+            //Si en caso la raíz está vacía, entonces se envía el valor a esa posición.
+
+            root = new Nodo(value); 
 
         }else{
+
+            //Si no, se envía a otra parte que no sea la raíz.
 
             root.add(value);
 
         }
-    }
-        //Obteniendo la raíz del árbol.
+    }   
+        /**
+         * Se regresa la raíz del árbol.
+         * @return root , se regresa la raíz del árbol.
+         */
         public Nodo getRoot(){
             return root;
         } 
 
-        //Regresando el árbol de la forma in-order.
+        /**
+         * Método encargado de regresar el árbol de forma in-order.
+         */
          public void inOrder() {
           inOrder(root);
     }
 
-        // Realizando el in-order.
+        /**
+         * Este método se encarga de hacer el ordenamiento in-order del árbol.
+         * 
+         * @param root se envía como parámetro la raíz.
+         */
        public void inOrder(Nodo root) {
          if (root != null) {            
 
