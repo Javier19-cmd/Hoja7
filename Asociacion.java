@@ -9,6 +9,7 @@
 
  import java.util.Map; //Importando la clase Mapa.
 
+
 public class Asociacion <K, V> implements Map.Entry<K, V>
 {
     /**
@@ -41,6 +42,12 @@ public class Asociacion <K, V> implements Map.Entry<K, V>
     public Asociacion(K key, V value)
     {
 
+        if(key != null){
+            System.out.println("La llave no debe ser nula");
+        }
+
+        theKey = key; //Igualando el objeto theKey a su valor key que recibe el método.
+        theValue = value; //Igualando el objeto theValue a su valor value que recibe el método. 
     }
 
     /**
@@ -51,8 +58,9 @@ public class Asociacion <K, V> implements Map.Entry<K, V>
      * @post se contruye un par de llave-valor. El valor está vacío.
      * @param key es una llave A que contiene un valor no nulo.
      */
-    public Asociacion(K key){
-
+    public Asociacion(K key)
+    {
+        this(key, null); //Asignando a la llave el valor nulo.
     }
 
     /**
@@ -65,7 +73,8 @@ public class Asociacion <K, V> implements Map.Entry<K, V>
      */
     public boolean equals(Object other)
     {
-
+        Asociacion otherAssoc = (Asociacion)other; //Haciendo un casting.
+        return getKey().equals(otherAssoc.getKey()); //Retornando el valor de la llave.
     }
 
     /**
@@ -78,7 +87,7 @@ public class Asociacion <K, V> implements Map.Entry<K, V>
      */
     public int hashCode()
     {
-
+        return getKey().hashCode(); //Retornando el valor del hashcode.
     }
 
     /**
@@ -90,9 +99,30 @@ public class Asociacion <K, V> implements Map.Entry<K, V>
      * 
      */
 
-    public V getValue(){
-
+    public V getValue()
+    {
+        return theValue; //Retornando el valor del objeto value.
     }
+
+    /**
+     * Este método retorna el valor del objeto llave.
+     * 
+     * @return theKey que es el valor del objeto key.
+     */
+
+    public K theKey(){
+        return theKey; //Retorno de la llave.
+    }
+
+    /**
+     * Este método retorna objeto con la llave ya asignada.
+     * 
+     * @return theKey , retornando la llave ya asignada.
+     */
+
+    public K getKey() {
+        return theKey;
+    } 
 
     /**
      * Hay un set del valor de un par de llave-valor.
@@ -101,8 +131,12 @@ public class Asociacion <K, V> implements Map.Entry<K, V>
      * 
      */
 
-    public V setValue(V value){
+    public V setValue(V value)
+    {
+        V oldValue = theValue; //Asignando el valor antiguo al objeto theValue.
+        theValue = value; //Asigando el valor de theValue al objeto value.
 
+        return oldValue; //Retornando el valor antiguo.
     }
 
     /**
@@ -114,7 +148,12 @@ public class Asociacion <K, V> implements Map.Entry<K, V>
 
     public String toString()
     {
+        StringBuffer s = new StringBuffer(); //Creando una variable de tipo Buffer.
 
+        s.append("<Asociación: "+getKey()+"="+">"); //Haciendo el append de las llaves.
+        
+        return s.toString(); //Retorno de la variable en la forma de string.
     }
+
 
 }
