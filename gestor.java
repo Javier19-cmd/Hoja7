@@ -28,10 +28,18 @@ import java.io.BufferedReader;
 
 public class gestor {
     
-    //Variables necesarias para poder hacer las llamadas a los métodos.
+  /**
+   * Creación de variables que se utilizarán para poder hacer las elecciones dentro del menú de inicio.
+   * 
+   */
     static int ele = 0; 
     static Scanner eleccion = new Scanner(System.in);
 
+    /**
+     * Este método se utilizará para poder enseñarle al usuario las opciones que tiene para poder usar el diccionario.
+     * 
+     * @return de la elección realizada.
+     */
     public static int menu(){
 
         System.out.println("Bienvenido al Diccionario inglés-español-francés");
@@ -75,7 +83,12 @@ public class gestor {
      }
     
 
-    /*                 AQUÍ ABRO LOS ARCHIVOS Y LOS MANDO A OTROS MÉTODOS              */
+    /**
+     * Este método es usado para poder abrir el diccionario y poder enviar a la clase Tree las palabras con su traducción de inglés-español-francés.
+     * 
+     * @return lector, esta variable retorna los valores que se están ingresando desde el archivo de texto.
+     */
+
      public static String abrirDiccionario(){
         
         String lector = ""; //Esta será la variable que retornará.
@@ -116,13 +129,18 @@ public class gestor {
             System.out.println("El archivo no existe en los directorios.");
         }
       
-          return lector; 
+          return lector; //Retornando los valores de lector. 
          }
 
-
-      /*      Método para abrir el archivo de texto llamado "texto.txt" con las oraciones que posea, en el idioma que sea      */
+      /**
+       * 
+       * Este método abre un archivo .txt llamado texto.txt el cual contiene oraciones que se originan de un idioma y que deben estar traducidas a otro idioma (puede ser inglés-español-francés)
+       * 
+       * 
+       * @return texto, el cual contendrá el string de las oraciones originaridas de un archivo con extención .txt llamado texto.txt.
+       */
       public static String abrirTexto(){
-        String lector = ""; //Esta será la variable que retornará.
+        String texto = ""; //Esta será la variable que retornará.
 
         //Try-catch para abrir el archivo texto.txt
         try {
@@ -131,17 +149,17 @@ public class gestor {
           File Text = new File("texto.txt"); //Variable para buscar el archivo.
           //Scanner palabras = new Scanner(Diccio); //Leyendo el archivo.
           
-          /* Encargados de procesar el archivo diccionario.txt */
+          /* Encargados de procesar el archivo texto.txt */
 
           FileReader fr = new FileReader(Text); 
           BufferedReader buff = new BufferedReader(fr);
           
-          lector = buff.readLine(); //Leyendo las líneas del archivo.
+          texto = buff.readLine(); //Leyendo las líneas del archivo.
           
         } catch (Exception ArchivoNoEncontrado) {
-          //TODO: handle exception
+          System.out.println("Archivo no encontrado entre los ficheros.");
         }
 
-        return lector; 
+        return texto; //Retornando los valores de texto.
       }
 }

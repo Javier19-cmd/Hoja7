@@ -14,13 +14,27 @@ public class Nodo {
     private Nodo left;   // Pointer to the left subtree.
     private Nodo right;  // Pointer to the right subtree.
 
+    /**
+     * Se iguala la variable word a s para así añadir el valor de la/las palabras a añadir al diccionario.
+     * 
+     * Los nodos left y right se inicializan como nulos, pues el árbol está vacío inicialmente.
+     * 
+     * @param s se envía como parámetro el valor de la palabra que se desea añadir.
+     */
+
     public Nodo(String s){
         word = s;
         left = null;
         right = null;
     }
 
-    //Método para poder añadir los valores de las ramas del árbol.
+
+    /**
+     * Este método es usado para poder añadir los valores a las ramas del árbol
+     * 
+     * @param value se envía como parámetro el valor de las ramas.
+     */
+
     public void add(String value) {
 
         if (left == null) { 
@@ -41,7 +55,12 @@ public class Nodo {
         }
     }
 
-    //Cuenta los nodos del árbol binario hacia donde la raíz apunta.
+    /**
+     * Se cuenta la cantidad de nodos hacia donde la raíz apunta.
+     * 
+     * @param root el valor de la raíz.
+     * @return el conteo total de nodos que pertenecen al árbol.
+     */
     public static int countNodes( Nodo root ) {
         if ( root == null ){
             //Retorna cero si el árbol está vacío.
@@ -67,12 +86,19 @@ public class Nodo {
         return left;
     }
 
-    //Obteniendo el nodo/nodos derecho/derechos.
+    /**
+     * 
+     * @post se regresa el valor del nodo derecho.
+     * @return el valor del nodo/s derecho.
+     */
     public Nodo getRight(){
         return right;
     }
 
-    //Obtiene la palabra.
+    /**
+     * @post se regresa la palabra deseada.
+     * @return palabra que se desea obtener.
+     */
     public String getWord(){
         return word;
     }
