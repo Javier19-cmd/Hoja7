@@ -15,7 +15,6 @@
  * 
  * Apertura de archivo: https://geekytheory.com/como-leer-un-fichero-en-java
  * 
- * In-order insertion del árbol: https://www.geeksforgeeks.org/insertion-in-a-binary-tree-in-level-order/
  * 
  * 
  * */ 
@@ -142,6 +141,8 @@ public class gestor {
       public static String abrirTexto(){
         String texto = ""; //Esta será la variable que retornará.
 
+
+
         //Try-catch para abrir el archivo texto.txt
         try {
         
@@ -153,9 +154,20 @@ public class gestor {
 
           FileReader fr = new FileReader(Text); 
           BufferedReader buff = new BufferedReader(fr);
-          
+
+
+          Asociacion as = new Asociacion(texto);
+
+          Nodo n = new Nodo(texto);
+
+          Tree t = new Tree();
+
           texto = buff.readLine(); //Leyendo las líneas del archivo texto.txt.
-          
+
+          //as.setValue(texto); //Teniendo el valor del texto.
+
+          System.out.println(n.getWord()); //Imprimiendo el valor del texto.
+
         } catch (Exception ArchivoNoEncontrado) {
           System.out.println("Archivo no encontrado entre los ficheros.");
         }

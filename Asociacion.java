@@ -10,7 +10,7 @@
  import java.util.Map; //Importando la clase Mapa.
 
 
-public class Asociacion <K, V> implements Map.Entry<K, V>
+public class Asociacion <K, V> 
 {
     /**
      * 
@@ -41,10 +41,6 @@ public class Asociacion <K, V> implements Map.Entry<K, V>
      */
     public Asociacion(K key, V value)
     {
-
-        if(key != null){
-            System.out.println("La llave no debe ser nula");
-        }
 
         theKey = key; //Igualando el objeto theKey a su valor key que recibe el método.
         theValue = value; //Igualando el objeto theValue a su valor value que recibe el método. 

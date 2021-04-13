@@ -2,11 +2,13 @@
  * @author Javier Sebastián Valle Balsells, carnet 20159
  * 
  * Referencia: https://www.daniweb.com/programming/software-development/threads/450817/binary-tree-using-strings-and-recursion
- * 
+ * In-order insertion del árbol: https://www.geeksforgeeks.org/insertion-in-a-binary-tree-in-level-order/
+ *  https://www.softwaretestinghelp.com/binary-search-tree-in-java/
  */
-public class Tree <E>{
+public class Tree
+{
 
-    public Nodo root; //Instancia de la clase nodo.
+    public Nodo root; //Instancia de la clase nodo y de la raíz.
 
     /**
      * Constructor de la clase Nodo, aquí se vuelve la raíz nula, para que no hayan problemas.
@@ -54,7 +56,16 @@ public class Tree <E>{
             root.add(value);
 
         }
+        
     }   
+
+    public String buscar(Nodo aux, String str)
+    {
+        if(aux == null){
+            return null;
+        }
+    }
+
         /**
          * Se regresa la raíz del árbol.
          * @return root , se regresa la raíz del árbol.

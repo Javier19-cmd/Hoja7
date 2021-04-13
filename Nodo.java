@@ -81,7 +81,10 @@ public class Nodo {
         }
     }
 
-    //Obteniendo el nodo/nodos izquierdo/izquierdos.
+    /**
+     * Este método funciona para poder retornar el nodo izquierdo del árbol.
+     * @return de la raíz izquierda.
+     */
     public Nodo getLeft(){
         return left;
     }
