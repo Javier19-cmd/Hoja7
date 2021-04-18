@@ -40,8 +40,10 @@ public class Tree
         if (n.getDato().equals(busqueda)) {
             return n.getDato();
         } else if (busqueda.compareTo(n.getDato()) < 0) {
+            n.imprimirDato();
             return existe(n.getIzquierda(), busqueda);
         } else {
+            n.imprimirDato();
             return existe(n.getDerecha(), busqueda);
         }
 
