@@ -1,9 +1,7 @@
 /**
  * @author Javier Sebastián Valle Balsells, carnet 20159
  * 
- * Referencia: https://www.daniweb.com/programming/software-development/threads/450817/binary-tree-using-strings-and-recursion
- * In-order insertion del árbol: https://www.geeksforgeeks.org/insertion-in-a-binary-tree-in-level-order/
- *  https://www.softwaretestinghelp.com/binary-search-tree-in-java/
+ * Referencia: https://parzibyte.me/blog/2020/05/08/arbol-binario-java/
  */
 import java.util.ArrayList;
 

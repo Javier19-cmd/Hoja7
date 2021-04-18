@@ -24,7 +24,7 @@
 import java.util.Scanner;
 import java.io.*; 
 import java.io.BufferedReader;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class gestor {
     
@@ -117,7 +117,7 @@ public class gestor {
                 //Tree m = new Tree();
                 //m.insert(lector);
                 
-                ArbolCadenas ar = new ArbolCadenas();
+                Tree ar = new Tree();
                 ar.insertar(lector);
                 System.out.println("Rama: ");
                 ar.inorden();
@@ -145,7 +145,8 @@ public class gestor {
        */
       public static String abrirTexto(){
         String texto = ""; //Esta será la variable que retornará.
-        String[] arrSplit = texto.split(" ");
+
+        ArrayList dato = new ArrayList();
 
         Tree ar = new Tree();
 
@@ -165,12 +166,14 @@ public class gestor {
 
           texto = br.readLine(); //Leyendo las líneas del archivo.
 
+          String[] arrSplit = texto.split(" ");
+
           for(int i = 0; i < arrSplit.length; i++)
           {
-            System.out.println(arrSplit[i]);
+            //System.out.println(arrSplit[i]);
 
             ar.existe(arrSplit[i]);
-
+          
             System.out.println(ar.existe(arrSplit[i]));
           }
           
