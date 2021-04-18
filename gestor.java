@@ -24,6 +24,7 @@
 import java.util.Scanner;
 import java.io.*; 
 import java.io.BufferedReader;
+import java.util.Arrays;
 
 public class gestor {
     
@@ -75,8 +76,8 @@ public class gestor {
          }
 
           //Llamadas definitivas.
-          if(ele == 1){abrirDiccionario();} //Llamando al método de abrirDiccionario, correspondiente a la clase gestor. (Esta clase :Vs)
-          if(ele == 2){abrirTexto();} //Llamando al método de abrirTexto, correspondiente a la clase gestor. (Esta clase :V)
+          if(ele == 1){abrirDiccionario(); menu();} //Llamando al método de abrirDiccionario, correspondiente a la clase gestor. (Esta clase :Vs)
+          if(ele == 2){abrirTexto(); menu();} //Llamando al método de abrirTexto, correspondiente a la clase gestor. (Esta clase :V)
 
           return ele; //Retorno de la elección.
      }
@@ -113,10 +114,14 @@ public class gestor {
                 //Nodo nodo = new Nodo(lector);
 
                 //Ordenando el diccionario.
-                Tree m = new Tree();
-                m.insert(lector);
+                //Tree m = new Tree();
+                //m.insert(lector);
+                
+                ArbolCadenas ar = new ArbolCadenas();
+                ar.insertar(lector);
                 System.out.println("Rama: ");
-                m.inOrder();
+                ar.inorden();
+                //m.inOrder();
 
           }
           
@@ -140,6 +145,11 @@ public class gestor {
        */
       public static String abrirTexto(){
         String texto = ""; //Esta será la variable que retornará.
+        String[] arrSplit = texto.split(" ");
+
+        Tree ar = new Tree();
+
+        abrirDiccionario();
 
 
 
@@ -148,25 +158,25 @@ public class gestor {
         
           //Abriendo formalmente el archivo.
           File Text = new File("texto.txt"); //Variable para buscar el archivo.
-          //Scanner palabras = new Scanner(Diccio); //Leyendo el archivo.
+          
+          FileReader fr = new FileReader(Text);  //Leyendo el archvio.
+          
+          BufferedReader br = new BufferedReader(fr); //Procesando el archivo.
+
+          texto = br.readLine(); //Leyendo las líneas del archivo.
+
+          for(int i = 0; i < arrSplit.length; i++)
+          {
+            System.out.println(arrSplit[i]);
+
+            ar.existe(arrSplit[i]);
+
+            System.out.println(ar.existe(arrSplit[i]));
+          }
           
           /* Encargados de procesar el archivo texto.txt */
 
-          FileReader fr = new FileReader(Text); 
-          BufferedReader buff = new BufferedReader(fr);
-
-
-          Asociacion as = new Asociacion(texto);
-
-          Nodo n = new Nodo(texto);
-
-          Tree t = new Tree();
-
-          texto = buff.readLine(); //Leyendo las líneas del archivo texto.txt.
-
-          //as.setValue(texto); //Teniendo el valor del texto.
-
-          System.out.println(n.getWord()); //Imprimiendo el valor del texto.
+          
 
         } catch (Exception ArchivoNoEncontrado) {
           System.out.println("Archivo no encontrado entre los ficheros.");

@@ -10,7 +10,7 @@
  import java.util.Map; //Importando la clase Mapa.
 
 
-public class Asociacion <K, V> 
+public class Asociacion <K, V>
 {
     /**
      * 
@@ -58,6 +58,15 @@ public class Asociacion <K, V>
     {
         this(key, null); //Asignando a la llave el valor nulo.
     }
+
+    /*
+    public String compareTo(Asociacion a)
+    {
+        Tree t = new Tree();
+
+        return a.getValue().compareTo(t.insert(value));
+    }
+    */
 
     /**
      * Forma estándar de comparar una función. Esta comparación se basa solamente en llaves.

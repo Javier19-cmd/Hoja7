@@ -1,20 +1,8 @@
-/**
- * @author Javier Sebastián Valle Balsells, carnet 20159 
- * 
- * 
- * Clase Nodo, será utilizada para el Árbol Binario.
- * 
- * 
- * Referencia: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
- */
-
-public class Nodo
-{
-    
+class NodoCadena {
     private String dato;
     private NodoCadena izquierda, derecha;
 
-    public Nodo(String dato) {
+    public NodoCadena(String dato) {
         this.dato = dato;
         this.izquierda = this.derecha = null;
     }
@@ -43,7 +31,4 @@ public class Nodo
     public void imprimirDato() {
         System.out.println(this.getDato());
     }
-
-    
-
 }
